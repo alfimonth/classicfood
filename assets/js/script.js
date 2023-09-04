@@ -21,20 +21,23 @@ const nav = document.querySelector('nav')
 const navItem = document.querySelectorAll('nav ul li a')
 navButton.addEventListener("click", () => {
     nav.classList.toggle('on')
+    navButton.classList.toggle('close')
 })
 
 navItem.forEach(item => {
     item.addEventListener("click", () => {
         nav.classList.remove('on')
+        navButton.classList.remove('close')
     })
 });
 
 
 // to top
-let toTopButton = document.querySelector(".toTopButton");
-window.onscroll = function () { scrollFunction() };
+const toTopButton = document.querySelector(".toTopButton");
 
-function scrollFunction() {
+window.onscroll = () => scrollFunction();
+
+const scrollFunction = () => {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         toTopButton.style.display = "block";
     } else {
@@ -42,7 +45,7 @@ function scrollFunction() {
     }
 }
 
-function topFunction() {
-    document.body.scrollTop = 0; 
-    document.documentElement.scrollTop = 0; 
+const topFunction = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }
